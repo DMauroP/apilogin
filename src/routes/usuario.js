@@ -11,8 +11,8 @@ router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   try {
-    const mensajeBienvenida = await authController.iniciarSesion(email, password);
-    res.json({ message: mensajeBienvenida });
+    const respuesta = await authController.iniciarSesion(email, password);
+    res.json(respuesta);
   } catch (error) {
     res.status(500).json({ error: "Error al iniciar sesión" });
   }
